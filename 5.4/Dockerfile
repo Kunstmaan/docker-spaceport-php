@@ -6,7 +6,7 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E5267A6C
 
 RUN echo 'deb http://ppa.launchpad.net/ondrej/php5-oldstable/ubuntu precise main' >> /etc/apt/sources.list && \
     apt-get -y -q update && \
-    apt-get -y -q install git unzip php5-fpm php5-cli php-pear curl php5-curl php5-intl php-imagick php5-mysqlnd php5-imap php5-gd php5-json php5-xmlrpc php5-xml php5-mcrypt php-apcu php-memcached && \
+    apt-get -y -q install git unzip php5-fpm php5-cli php-pear curl php5-curl php5-intl php-imagick php5-mysqlnd php5-imap php5-gd php5-json php5-xmlrpc php5-xml php5-mcrypt php-apc php-memcached && \
     mkdir -p /run/php/ && \
     apt-get -y -q autoremove && \
     apt-get -y -q clean && \
