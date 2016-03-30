@@ -8,7 +8,8 @@ RUN echo 'deb http://ppa.launchpad.net/ondrej/php5/ubuntu trusty main' >> /etc/a
     apt-get -y -q update && \
     apt-get -y -q install git unzip php5-fpm php5-cli php-pear curl php5-curl php5-intl php5-imagick php5-mysqlnd php5-imap php5-gd php5-json php5-xmlrpc php5-xsl php5-mcrypt php5-apcu php5-memcached && \
     curl -sL https://deb.nodesource.com/setup_4.x | bash - && \
-    apt-get install -y build-essential nodejs && \
+    apt-get install -y build-essential nodejs bundler && \
+    npm install -g bower gulp uglify-js uglifycss && \
     mkdir -p /run/php/ && \
     apt-get -y -q autoremove && \
     apt-get -y -q clean && \
