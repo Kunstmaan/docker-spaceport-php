@@ -40,7 +40,7 @@ nl_NL@euro ISO-8859-15\n'\
 usr/sbin/locale-gen
 
 ADD kunstmaan.ini /etc/php5/mods-available/kunstmaan.ini
-RUN phpenmod kunstmaan
+RUN php5enmod kunstmaan
 
 ADD www.conf /etc/php5/fpm/pool.d/www.conf
 
