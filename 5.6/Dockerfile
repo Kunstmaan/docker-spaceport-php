@@ -8,7 +8,7 @@ RUN echo 'deb http://ppa.launchpad.net/ondrej/php/ubuntu xenial main' >> /etc/ap
     apt-get -y -q update && \
     apt-get -y -q install git unzip php5.6-fpm php5.6-cli php-pear curl php5.6-curl php5.6-intl php-imagick php5.6-mysqlnd php5.6-imap php5.6-gd php5.6-json php5.6-xmlrpc php5.6-xml php5.6-mcrypt php5.6-mbstring php-apcu php-apcu-bc php-memcached && \
     mkdir -p /run/php/ && \
-    apt-get install -y build-essential nodejs bundler && \
+    apt-get install -y build-essential nodejs bundler npm && \
     npm install -g bower gulp uglify-js uglifycss && \
     apt-get -y -q autoremove && \
     apt-get -y -q clean && \
