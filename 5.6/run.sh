@@ -3,4 +3,4 @@
 cd /app
 composer install  --optimize-autoloader
 
-php-fpm7.0
+php-fpm5.6
