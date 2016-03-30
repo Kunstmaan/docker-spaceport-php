@@ -1,12 +1,12 @@
-FROM ubuntu:xenial
+FROM ubuntu:trusty
 
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E5267A6C
 
-RUN echo 'deb http://ppa.launchpad.net/ondrej/php/ubuntu xenial main' >> /etc/apt/sources.list && \
+RUN echo 'deb http://ppa.launchpad.net/ondrej/php5/ubuntu trusty main' >> /etc/apt/sources.list && \
     apt-get -y -q update && \
-    apt-get -y -q install git unzip php7.0-fpm php7.0-cli php-pear curl php7.0-curl php7.0-intl php-imagick php7.0-mysqlnd php7.0-imap php7.0-gd php7.0-json php7.0-xmlrpc php7.0-xsl php7.0-mcrypt php-apcu php-memcached && \
+    apt-get -y -q install git unzip php5-fpm php5-cli php-pear curl php5-curl php5-intl php-imagick php5-mysqlnd php5-imap php5-gd php5-json php5-xmlrpc php5-xml php5-mcrypt php-apcu php-memcached && \
     mkdir -p /run/php/ && \
     apt-get -y -q autoremove && \
     apt-get -y -q clean && \
@@ -37,10 +37,10 @@ nl_NL@euro ISO-8859-15\n'\
 >> /etc/locale.gen &&  \
 usr/sbin/locale-gen
 
-ADD kunstmaan.ini /etc/php/7.0/mods-available/kunstmaan.ini
+ADD kunstmaan.ini /etc/php5/mods-available/kunstmaan.ini
 RUN phpenmod kunstmaan
 
-ADD www.conf /etc/php/7.0/fpm/pool.d/www.conf
+ADD www.conf /etc/php5/fpm/pool.d/www.conf
 
 EXPOSE 9000
 
