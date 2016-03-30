@@ -9,4 +9,4 @@ gulp build
 app/console assets:install --symlink
 app/console assetic:dump
 
-php-fpm5.6
+php5-fpm
