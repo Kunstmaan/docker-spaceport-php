@@ -43,5 +43,8 @@ RUN phpenmod kunstmaan
 ADD www.conf /etc/php/7.0/fpm/pool.d/www.conf
 
 EXPOSE 9000
-CMD ["php-fpm7.0"]
-#CMD ["/bin/bash"]
+
+ADD run.sh /scripts/run.sh
+RUN chmod -R 755 /scripts
+
+CMD ["/scripts/run.sh"]
