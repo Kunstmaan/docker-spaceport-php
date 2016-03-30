@@ -6,7 +6,7 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E5267A6C
 
 RUN echo 'deb http://ppa.launchpad.net/ondrej/php/ubuntu wily main' >> /etc/apt/sources.list && \
     apt-get -y -q update && \
-    apt-get -y -q install git unzip php5.6-fpm php5.6-cli php-pear curl php5.6-curl php5.6-intl php-imagick php5.6-mysqlnd php5.6-imap php5.6-gd php5.6-json php5.6-xmlrpc php5.6-xsl php5.6-mcrypt php-apcu php-memcached && \
+    apt-get -y -q install git unzip php5.6-fpm php5.6-cli php-pear curl php5.6-curl php5.6-intl php-imagick php5.6-mysqlnd php5.6-imap php5.6-gd php5.6-json php5.6-xmlrpc php5.6-xml php5.6-xsl php5.6-mcrypt php-apcu php-memcached && \
     mkdir -p /run/php/ && \
     apt-get -y -q autoremove && \
     apt-get -y -q clean && \
