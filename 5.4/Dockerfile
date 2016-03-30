@@ -10,6 +10,7 @@ RUN echo 'deb http://ppa.launchpad.net/ondrej/php5-oldstable/ubuntu precise main
     mkdir -p /run/php/ && \
     curl -sL https://deb.nodesource.com/setup_4.x | bash - && \
     apt-get install -y build-essential nodejs ruby-bundler && \
+    ln -sf /usr/bin/nodejs /usr/bin/node && \
     npm install -g bower gulp uglify-js uglifycss && \
     apt-get -y -q autoremove && \
     apt-get -y -q clean && \

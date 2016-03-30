@@ -9,6 +9,7 @@ RUN echo 'deb http://ppa.launchpad.net/ondrej/php/ubuntu xenial main' >> /etc/ap
     apt-get -y -q install git unzip php7.0-fpm php7.0-cli php-pear curl php7.0-curl php7.0-intl php-imagick php7.0-mysqlnd php7.0-imap php7.0-gd php7.0-json php7.0-xmlrpc php7.0-xsl php7.0-mcrypt php7.0-mbstring php-apcu php-memcached && \
     mkdir -p /run/php/ && \
     apt-get install -y build-essential nodejs bundler npm && \
+    ln -sf /usr/bin/nodejs /usr/bin/node && \
     npm install -g bower gulp uglify-js uglifycss && \
     apt-get -y -q autoremove && \
     apt-get -y -q clean && \
