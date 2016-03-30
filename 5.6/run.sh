@@ -1,7 +1,7 @@
 #!/bin/bash
 
 cd /app
-composer install  --optimize-autoloader --ignore-platform-reqs --env=docker
+composer install  --optimize-autoloader --ignore-platform-reqs
 bundle install
 
 cp /app/package.json /root/
@@ -10,7 +10,7 @@ rsync -rlzuIO --ignore-errors /root/node_modules/ /app/node_modules > /dev/null 
 rm -rf /root/node_modules /root/package.json
 cd /app
 
-bower install
+bower install --allow-root
 gulp build
 app/console assets:install --symlink --env=docker
 app/console assetic:dump --env=docker
