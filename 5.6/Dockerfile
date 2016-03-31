@@ -45,6 +45,11 @@ RUN phpenmod kunstmaan
 
 ADD www.conf /etc/php/5.6/fpm/pool.d/www.conf
 
+COPY package.json /root/package.json
+
+RUN cd /root && \
+    npm install -q
+
 EXPOSE 9000
 
 ADD run.sh /scripts/run.sh
