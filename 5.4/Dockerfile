@@ -33,7 +33,14 @@ RUN locale-gen nl_BE && \
     locale-gen es_ES && \
     locale-gen nl_NL && \
     locale-gen fr_FR && \
-    locale-gen en_US
+    locale-gen en_US && \
+    locale-gen nl_BE.UTF-8 && \
+    locale-gen fr_BE.UTF-8 && \
+    locale-gen en_GB.UTF-8 && \
+    locale-gen es_ES.UTF-8 && \
+    locale-gen nl_NL.UTF-8 && \
+    locale-gen fr_FR.UTF-8 && \
+    locale-gen en_US.UTF-8
 
 COPY ./configs/kunstmaan.ini /etc/php5/mods-available/kunstmaan.ini
 RUN php5enmod kunstmaan
