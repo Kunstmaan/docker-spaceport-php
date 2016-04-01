@@ -1,5 +1,5 @@
 {
-  "name": "Docker Build",
+  "name": "DockerBuild",
   "version": "1.0.0",
   "devDependencies": {
     "bower": "~1.3",
