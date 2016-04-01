@@ -57,4 +57,4 @@ EXPOSE 9000
 ADD run.sh /scripts/run.sh
 RUN chmod -R 755 /scripts
 
-CMD ["/scripts/run.sh"]
+CMD ["/scripts/run.sh", "php5-fpm"]

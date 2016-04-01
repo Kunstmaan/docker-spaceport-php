@@ -2,7 +2,6 @@
 
 cd /app
 composer install  --optimize-autoloader --ignore-platform-reqs
-bundle install
 
 cp /app/package.json /root/
 cd /root && npm install -q
@@ -14,4 +13,4 @@ gulp build
 app/console assets:install --symlink --env=docker
 app/console assetic:dump --env=docker
 
-php-fpm5.6
+`$1`

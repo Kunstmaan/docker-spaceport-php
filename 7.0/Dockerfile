@@ -41,19 +41,19 @@ nl_NL@euro ISO-8859-15\n'\
 >> /etc/locale.gen &&  \
 usr/sbin/locale-gen
 
-ADD kunstmaan.ini /etc/php/7.0/mods-available/kunstmaan.ini
+ADD ../configs/kunstmaan.ini /etc/php/7.0/mods-available/kunstmaan.ini
 RUN phpenmod kunstmaan
 
-ADD www.conf /etc/php/7.0/fpm/pool.d/www.conf
+ADD ../configs/www.conf /etc/php/7.0/fpm/pool.d/www.conf
 
-COPY package.json /root/package.json
+ADD ../configs/package.json /root/package.json
 
 RUN cd /root && \
     npm install -q
 
 EXPOSE 9000
 
-ADD run.sh /scripts/run.sh
+ADD ../configs/run.sh /scripts/run.sh
 RUN chmod -R 755 /scripts
 
-CMD ["/scripts/run.sh"]
+CMD ["/scripts/run.sh", "php-fpm7.0"]
