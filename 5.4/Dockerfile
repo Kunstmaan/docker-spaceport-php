@@ -13,9 +13,9 @@ RUN echo 'deb http://ppa.launchpad.net/ondrej/php5-oldstable/ubuntu precise main
     apt-get -y -qq install build-essential nodejs && \
     echo 'deb http://ppa.launchpad.net/brightbox/ruby-ng/ubuntu precise main' >> /etc/apt/sources.list && \
     apt-get -y -qq update && \
-    apt-get -y -qq install ruby1.9.3 ruby1.9.3-dev ruby-switch && \
-    ruby-switch --set ruby1.9.3 && \
-    gem1.9.3 install bundler && \
+    apt-get -y -qq install ruby1.9.1 ruby1.9.1-dev ruby-switch && \
+    ruby-switch --set ruby1.9.1 && \
+    gem1.9.1 install bundler && \
     ln -sf /usr/bin/nodejs /usr/bin/node && \
     npm install -g bower gulp uglify-js uglifycss && \
     apt-get -y -qq autoremove && \
