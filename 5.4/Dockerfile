@@ -41,22 +41,22 @@ nl_NL@euro ISO-8859-15\n'\
 >> /etc/locale.gen &&  \
 usr/sbin/locale-gen
 
-ADD kunstmaan.ini /etc/php5/mods-available/kunstmaan.ini
+COPY ./configs/kunstmaan.ini /etc/php5/mods-available/kunstmaan.ini
 RUN php5enmod kunstmaan
 
-ADD www.conf /etc/php5/fpm/pool.d/www.conf
+COPY ./configs/www.conf /etc/php5/fpm/pool.d/www.conf
 
-COPY package.json /root/package.json
+COPY ./configs/package.json /root/package.json
 RUN cd /root && \
     npm install -q
 
-ADD ../configs/Gemfile /root/Gemfile
+COPY ./configs/Gemfile /root/Gemfile
 RUN cd /root && \
     bundle install
 
 EXPOSE 9000
 
-ADD run.sh /scripts/run.sh
+COPY ./configs/run.sh /scripts/run.sh
 RUN chmod -R 755 /scripts
 
 CMD ["/scripts/run.sh", "php5-fpm"]
