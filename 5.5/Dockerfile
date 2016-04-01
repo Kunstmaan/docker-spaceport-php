@@ -48,9 +48,12 @@ RUN php5enmod kunstmaan
 ADD www.conf /etc/php5/fpm/pool.d/www.conf
 
 COPY package.json /root/package.json
-
 RUN cd /root && \
     npm install -q
+
+ADD ../configs/Gemfile /root/Gemfile
+RUN cd /root && \
+    bundle install
 
 EXPOSE 9000
 
