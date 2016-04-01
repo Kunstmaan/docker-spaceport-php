@@ -11,7 +11,7 @@ cd /app
 bundle install
 bower install --allow-root
 gulp build
-app/console assets:install --symlink --env=docker
-app/console assetic:dump --env=docker
+bin/console assets:install --symlink --env=docker || app/console assets:install --symlink --env=docker
+bin/console assetic:dump --env=docker || app/console assetic:dump --env=docker
 
 `$1`
