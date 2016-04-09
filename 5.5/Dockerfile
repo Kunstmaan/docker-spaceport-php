@@ -6,7 +6,7 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E5267A6C
 
 RUN echo 'deb http://ppa.launchpad.net/ondrej/php5/ubuntu trusty main' >> /etc/apt/sources.list && \
     apt-get -y -qq update && \
-    apt-get -y -qq install git unzip php5-fpm php5-cli php-pear curl php5-curl php5-sqlite php5-intl php5-imagick php5-mysqlnd php5-imap php5-gd php5-json php5-xmlrpc php5-xsl php5-mcrypt php5-apcu php5-memcached && \
+    apt-get -y -qq install git unzip php5-fpm php5-cli php-pear curl php5-curl php5-gmp php5-sqlite php5-intl php5-imagick php5-mysqlnd php5-imap php5-gd php5-json php5-xmlrpc php5-xsl php5-mcrypt php5-apcu php5-memcached && \
     curl -sL https://deb.nodesource.com/setup_4.x | bash - && \
     apt-get -y -qq install build-essential nodejs bundler && \
     ln -sf /usr/bin/nodejs /usr/bin/node && \
