@@ -3,14 +3,14 @@
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8"
 
-if [ "$COMPOSER" eq "yes" ]; then
+if [ "$COMPOSER" == "yes" ]; then
     cd /app
     if [ -f composer.json ]; then
         composer install  --optimize-autoloader --ignore-platform-reqs
     fi
 fi
 
-if [ "$NPM" eq "yes" ]; then
+if [ "$NPM" == "yes" ]; then
     cd /app
     if [ -f package.json ]; then
         cp /app/package.json /root/
@@ -19,33 +19,33 @@ if [ "$NPM" eq "yes" ]; then
     fi
 fi
 
-if [ "$GEM" eq "yes" ]; then
+if [ "$GEM" == "yes" ]; then
     cd /app
     if [ -f Gemfile ]; then
         bundle install
     fi
 fi
 
-if [ "$BOWER" eq "yes" ]; then
+if [ "$BOWER" == "yes" ]; then
     cd /app
     if [ -f bower.json ]; then
         bower install --allow-root
     fi
 fi
 
-if [ "$GULP" eq "yes" ]; then
+if [ "$GULP" == "yes" ]; then
     cd /app
     if [ -f Gulpfile ]; then
         gulp build
     fi
 fi
 
-if [ "$ASSETS" eq "yes" ]; then
+if [ "$ASSETS" == "yes" ]; then
     cd /app
     bin/console assets:install --symlink --env=docker || app/console assets:install --symlink --env=docker
 fi
 
-if [ "$ASSETIC" eq "yes" ]; then
+if [ "$ASSETIC" == "yes" ]; then
     cd /app
     bin/console assetic:dump --env=docker || app/console assetic:dump --env=docker
 fi
