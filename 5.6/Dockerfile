@@ -41,8 +41,6 @@ RUN phpenmod opcache
 COPY ./configs/apcu.ini /etc/php/5.6/mods-available/apcu.ini
 RUN phpenmod apcu
 
-RUN a2enmod proxy_fcgi
-
 COPY ./configs/kunstmaan.ini /etc/php/5.6/mods-available/kunstmaan.ini
 RUN phpenmod kunstmaan
 
