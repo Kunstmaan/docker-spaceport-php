@@ -1,18 +1,16 @@
-FROM ubuntu:trusty
+FROM ubuntu:16.04
 
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E5267A6C
 
-RUN echo 'deb http://ppa.launchpad.net/ondrej/php/ubuntu trusty main' >> /etc/apt/sources.list && \
-    apt-get -y -qq update && \
-    apt-get -y -qq install git unzip php7.0-fpm php7.0-cli php-pear curl php7.0-curl php7.0-intl php7.0-sqlite3 php-imagick php7.0-mysqlnd php7.0-imap php7.0-gd php7.0-json php7.0-xmlrpc php7.0-xsl php7.0-mcrypt php7.0-mbstring php7.0-gmp php-apcu php-memcached && \
+RUN echo 'deb http://ppa.launchpad.net/ondrej/php/ubuntu xenial main' >> /etc/apt/sources.list && \
+    apt-get -y -q update && \
+    apt-get -y -q install apt-utils build-essential curl locales && \
+    apt-get -y -q install --no-install-recommends php7.0 php7.0-apcu php7.0-cgi php7.0-cli php7.0-common php7.0-curl php7.0-dev php7.0-fpm php7.0-gd php7.0-imagick php7.0-imap php7.0-intl php7.0-json php7.0-ldap php7.0-mcrypt php7.0-memcached php7.0-mysqlnd php7.0-pgsql php7.0-readline php7.0-sybase php7.0-xmlrpc php7.0-xsl php7.0-mbstring php7.0-soap php7.0-zip php7.0 libapache2-mod-php7.0 && \
     mkdir -p /run/php/ && \
-    apt-get -y -qq install build-essential nodejs bundler npm && \
-    ln -sf /usr/bin/nodejs /usr/bin/node && \
-    npm install -g bower gulp uglify-js uglifycss && \
-    apt-get -y -qq autoremove && \
-    apt-get -y -qq clean && \
+    apt-get -y -q autoremove && \
+    apt-get -y -q clean && \
     rm -rf /var/lib/apt/lists/*
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
@@ -35,18 +33,16 @@ RUN locale-gen nl_BE && \
     locale-gen fr_FR.UTF-8 && \
     locale-gen en_US.UTF-8
 
+COPY ./configs/opcache.ini /etc/php/7.0/mods-available/opcache.ini
+RUN phpenmod opcache
+
+COPY ./configs/apcu.ini /etc/php/7.0/mods-available/apcu.ini
+RUN phpenmod apcu
+
 COPY ./configs/kunstmaan.ini /etc/php/7.0/mods-available/kunstmaan.ini
 RUN phpenmod kunstmaan
 
 COPY ./configs/www.conf /etc/php/7.0/fpm/pool.d/www.conf
-
-COPY ./configs/package.json /root/package.json
-RUN cd /root && \
-    npm install -q
-
-COPY ./configs/Gemfile /root/Gemfile
-RUN cd /root && \
-    bundle install
 
 EXPOSE 9000
 

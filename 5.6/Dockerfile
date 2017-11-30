@@ -13,8 +13,6 @@ RUN echo 'deb http://ppa.launchpad.net/ondrej/php/ubuntu xenial main' >> /etc/ap
     apt-get -y -q clean && \
     rm -rf /var/lib/apt/lists/*
 
-RUN curl --version
-
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
     composer global require hirak/prestissimo
 
