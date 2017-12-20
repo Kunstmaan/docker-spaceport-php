@@ -6,8 +6,8 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E5267A6C
 
 RUN echo 'deb http://ppa.launchpad.net/ondrej/php/ubuntu xenial main' >> /etc/apt/sources.list && \
     apt-get -y -q update && \
-    apt-get -y -q install apt-utils build-essential curl locales && \
-    apt-get -y -q install --no-install-recommends php7.0 php7.0-apcu php7.0-apcu-bc php7.0-cgi php7.0-cli php7.0-common php7.0-curl php7.0-dev php7.0-fpm php7.0-gd php7.0-imagick php7.0-imap php7.0-intl php7.0-json php7.0-ldap php7.0-mcrypt php7.0-memcached php7.0-mysqlnd php7.0-pgsql php7.0-readline php7.0-sybase php7.0-xmlrpc php7.0-xsl php7.0-mbstring php7.0-soap php-xdebug php7.0-zip php7.0 libapache2-mod-php7.0 && \
+    apt-get -y -q install apt-utils build-essential curl wget locales && \
+    apt-get -y -q install --no-install-recommends libxrender1 php7.0 php7.0-apcu php7.0-apcu-bc php7.0-cgi php7.0-cli php7.0-common php7.0-curl php7.0-dev php7.0-fpm php7.0-gd php7.0-imagick php7.0-imap php7.0-intl php7.0-json php7.0-ldap php7.0-mcrypt php7.0-memcached php7.0-mysqlnd php7.0-pgsql php7.0-readline php7.0-sybase php7.0-xmlrpc php7.0-xsl php7.0-mbstring php7.0-soap php-xdebug php7.0-zip php7.0 libapache2-mod-php7.0 && \
     mkdir -p /run/php/ && \
     apt-get -y -q autoremove && \
     apt-get -y -q clean && \
@@ -15,6 +15,11 @@ RUN echo 'deb http://ppa.launchpad.net/ondrej/php/ubuntu xenial main' >> /etc/ap
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
     composer global require hirak/prestissimo
+
+RUN mkdir -p /tmp/wkhtml && cd /tmp/wkhtml && \
+    wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz && \
+    tar vxf wkhtmltox-0.12.4_linux-generic-amd64.tar.xz && \
+    cp wkhtmltox/bin/wk* /usr/local/bin/ && rm -rf /tmp/wkhtml
 
 RUN echo Europe/Brussels > /etc/timezone && dpkg-reconfigure --frontend noninteractive tzdata
 
