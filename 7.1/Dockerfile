@@ -38,6 +38,10 @@ RUN locale-gen nl_BE && \
     locale-gen fr_FR.UTF-8 && \
     locale-gen en_US.UTF-8
 
+ENV LC_ALL en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US.UTF-8
+
 COPY ./configs/opcache.ini /etc/php/7.1/mods-available/opcache.ini
 RUN phpenmod opcache
 
