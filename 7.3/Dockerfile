@@ -6,8 +6,8 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E5267A6C
 
 RUN echo 'deb http://ppa.launchpad.net/ondrej/php/ubuntu xenial main' >> /etc/apt/sources.list && \
     apt-get -y -q update && \
-    apt-get -y -q install apt-utils build-essential curl wget locales git vim unzip && \
-    apt-get -y -q install --no-install-recommends libxrender1 php7.3 php7.3-apcu php7.3-apcu-bc php7.3-bcmath php7.3-cgi php7.3-cli php7.3-common php7.3-curl php7.3-dev php7.3-fpm php7.3-gd php7.3-imagick php7.3-imap php7.3-intl php7.3-json php7.3-ldap php7.3-memcached php7.3-mysqlnd php7.3-pgsql php7.3-readline php7.3-sybase php7.3-xmlrpc php7.3-xsl php7.3-mbstring php7.3-soap php-xdebug php7.3-zip php7.3 libapache2-mod-php7.3 && \
+    apt-get -y -q --allow-unauthenticated install apt-utils build-essential curl wget locales git vim unzip && \
+    apt-get -y -q --allow-unauthenticated install --no-install-recommends libxrender1 php7.3 php7.3-apcu php7.3-apcu-bc php7.3-amqp php7.3-bcmath php7.3-cgi php7.3-cli php7.3-common php7.3-curl php7.3-dev php7.3-fpm php7.3-gd php7.3-imagick php7.3-imap php7.3-intl php7.3-json php7.3-ldap php7.3-memcached php7.3-mysqlnd php7.3-pgsql php7.3-readline php7.3-sybase php7.3-xmlrpc php7.3-xsl php7.3-mbstring php7.3-soap php-xdebug php7.3-zip php7.3 libapache2-mod-php7.3 && \
     mkdir -p /run/php/ && \
     apt-get -y -q autoremove && \
     apt-get -y -q clean && \
