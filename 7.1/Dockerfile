@@ -60,6 +60,6 @@ EXPOSE 9000
 COPY ./configs/run.sh /scripts/run.sh
 RUN chmod -R 755 /scripts
 
-CMD ["/scripts/run.sh", "php-fpm7.1"]
+CMD ["/scripts/run.sh", "php-fpm7.1 --allow-to-run-as-root"]
 
 WORKDIR /app
