@@ -12,7 +12,7 @@ if [ "$XDEBUG" == "off" ]; then
 fi
 
 if [ -n "$XDEBUG_HOST" ]; then
-    echo "xdebug.remote_host=$XDEBUG_HOST" >> /etc/php/7.0/mods-available/xdebug.ini
+    echo "xdebug.remote_host=$XDEBUG_HOST" >> /etc/php/7.2/mods-available/xdebug.ini
 fi
 
 `$1`
