@@ -11,8 +11,4 @@ if [ "$XDEBUG" == "off" ]; then
     phpdismod xdebug
 fi
 
-if [ -n "$XDEBUG_HOST" ]; then
-    echo "xdebug.remote_host=$XDEBUG_HOST" >> /etc/php/7.1/mods-available/xdebug.ini
-fi
-
 `$1`
