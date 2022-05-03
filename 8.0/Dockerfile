@@ -9,7 +9,7 @@ RUN apt-get update && \
 # Install php
 RUN add-apt-repository ppa:ondrej/php && \
     apt-get -y -q update && \
-    apt-get -y -q --allow-unauthenticated install --no-install-recommends libxrender1 php8.0 php8.0-apcu php8.0-bcmath php8.0-cgi php8.0-amqp php8.0-cli php8.0-common php8.0-curl php8.0-dev php8.0-fpm php8.0-gd php8.0-imagick php8.0-imap php8.0-intl php8.0-ldap php8.0-memcached php8.0-mysqlnd php8.0-pgsql php8.0-readline php8.0-sybase php8.0-xmlrpc php8.0-xsl php8.0-mbstring php8.0-soap php-xdebug php8.0-zip libapache2-mod-php8.0 && \
+    apt-get -y -q --allow-unauthenticated install --no-install-recommends libxrender1 php8.0 php8.0-xml php8.0-apcu php8.0-bcmath php8.0-cgi php8.0-amqp php8.0-cli php8.0-common php8.0-curl php8.0-dev php8.0-fpm php8.0-gd php8.0-imagick php8.0-imap php8.0-intl php8.0-ldap php8.0-memcached php8.0-mysqlnd php8.0-pgsql php8.0-readline php8.0-sybase php8.0-xmlrpc php8.0-xsl php8.0-mbstring php8.0-soap php8.0-xdebug php8.0-zip libapache2-mod-php8.0 && \
     mkdir -p /run/php/
 
 # Install wkhtmltopdf, increased container size by 6 times sadly and clean up some unused packages
